@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Manager</title>
+</head>
+<body>
+<p style="margin-left: 600px;"><a href="/logout">ログアウト</a></p>
+<p1><B>ユーザー作成・削除</B></p1>
+<table border="1" width="700">
+	<tr bgcolor="#99ccff">
+	<td colspan="2"><B>新規</B><span  style="font-size:16px">-ユーザーアカウントを作成します。</span></td>
+	</tr>
+	<tr>
+		<form  method='post'>
+		<input type="hidden" id="id_csrf" name="_csrf" value='<%= csrfToken%>'>
+		<td border="0">ユーザーID:  <input type="text" placeholder="10文字/英数字+記号" id="id_name" name='name' size="30" required></td>
+		<td border="0">パスワード:  <input type="password" placeholder="10文字/英数字+記号"  id="id_pass" name='pass' size="30" required></td>
+	</tr>
+	<tr border="0">
+	    <td colspan="2" align="right" border="0"><span style="color:red;font-size:12px">ユーザーIDを入力してください。</span><input type="button" id="addbtn" value="ユーザー作成" onclick="regist()"></td>
+	</tr>
+		</form>
+	<tr bgcolor="#99ccff">
+		<td colspan="2"><B>削除</B><span  style="font-size:16px">-ユーザーを削除します。</span></td>
+	</tr>	
+	<tr border="0">
+		<form  method='post'>
+		<td colspan="2" border="0">ユーザーID:  <input id="id_de" name="delname" type="text" placeholder="10文字/英数字+記号" size="30" required></td>
+	</tr>
+	<tr border="0">
+		<td colspan="2" align="right" border="0"><span style="color:red;font-size:12px">ユーザーIDを入力してください。</span><input type="button" value="ユーザー削除" onclick="deluser()"></td>
+		</form>
+	</tr>
+</table>
+<hr></hr>
+<p1><B>テーブル作成・削除</B></p1>
+<table border="1" width="700">
+	<tr border="0">
+		<td colspan="1" align="right"><input type="button" value="テーブル作成" onclick="cretable()"></td>
+	</tr>
+		<tr border="0">
+		<td colspan="1" align="right"><input type="button" value="テーブル削除" onclick="deltable()"></td>
+	</tr>
+<table>
+	<script type="text/javascript" src="javascripts/jquery.js"></script>
+	<script type="text/javascript" src="javascripts/manage.js"></script>
+</body>
+</html>
+</html>

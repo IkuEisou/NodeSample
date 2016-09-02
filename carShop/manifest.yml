@@ -1,0 +1,17 @@
+---
+applications:
+- name: nodeCarshop
+  command: npm start 
+  memory: 256M
+  instances: 1
+  url: nodeCarshop.10.167.227.48.xip.io
+  buildpack: nodejs_buildpack
+  path: .
+  
+env:
+  #https_proxy: http://10.167.227.38:1080
+  #http_proxy: http://10.167.227.38:1080
+  no_proxy: 127.0.0.1,api.10.167.227.48.xip.io,doppler.10.167.227.48.xip.io,hm9000.10.167.227.48.xip.io,uaa.10.167.227.48.xip.io,loggregator.10.167.227.48.xip.io,nodeCarshop.10.167.227.48.xip.io
+
+#services:
+#- postgres

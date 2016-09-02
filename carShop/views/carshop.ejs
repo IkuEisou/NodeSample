@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<HTML><HEAD><TITLE>CarShopトップ</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 9.00.8112.16737"></HEAD>
+<BODY bgColor=#3399ff>
+<input type="hidden" name="_csrf" id="id_csrf" value='<%= csrfToken%>'>
+<div id=shop>
+<p style="margin-left: 1400px;"><a href="/logout">ログアウト</a></p>
+<H1>CarShopトップ</H1>
+<HR>
+<INPUT value=OK type=submit onclick="submit()"> <INPUT value=クリア type=reset onclick="reset()"> <BR>
+<TABLE border=1 width="80%">
+  <TBODY>
+  <TR bgColor=#99ccff>
+    <TD colSpan=6><INPUT name=call value=selectOne CHECKED type=radio> 
+      <B>1件検索</B> -検索キーを入力し検索して下さい。-</TD></TR>
+  <TR bgColor=#ffffff>
+    
+    <TD colSpan=5>検索ID <INPUT id=id_so name=id_so required size=12></TD></TR>
+  <TR bgColor=#99ccff>
+    <TD colSpan=6><INPUT name=call value=insert type=radio> <B>登録処理</B> 
+      -各種データを入力し登録して下さい。-</TD></TR>
+  <TR bgColor=#ffffff>
+
+    <TD>登録ID<BR><INPUT id=id_in name=id_in size=12></TD>
+    <TD>車名<BR><INPUT id=name_in name=name_in></TD>
+    <TD>カラー<BR><INPUT id=color_in name=color_in size=12></TD>
+    <TD>在庫有無(有:0/無:1)<BR><INPUT id=zaiko_in name=zaiko_in size=12></TD>
+    <TD>排気量(cc)<BR><INPUT id=haikiryou_in name=haikiryou_in size=12></TD></TR>
+  <TR bgColor=#ffffff>
+
+    <TD>燃費(10･15モード)<BR><INPUT id=nenpi_in name=nenpi_in size=12></TD>
+    <TD>走行距離(km)<BR><INPUT id=milage_in name=milage_in size=12></TD>
+    <TD>年式<BR><INPUT id=nenshiki_in name=nenshiki_in size=12></TD>
+    <TD 
+    colSpan=2>コメント<BR><TEXTAREA cols=30 rows=3 id=comment_in name=comment_in></TEXTAREA></TD></TR>
+  <TR bgColor=#99ccff>
+    <TD colSpan=6><INPUT name=call value=update type=radio> <B>更新処理</B> 
+      -各種データを入力し登録して下さい。-</TD></TR>
+  <TR bgColor=#ffffff>
+
+    <TD>更新ID<BR><INPUT id=id_up name=id_up size=12></TD>
+    <TD>車名<BR><INPUT id=name_up name=name_up></TD>
+    <TD>カラー<BR><INPUT id=color_up name=color_up size=12></TD>
+    <TD>在庫有無(有:0/無:1)<BR><INPUT id=zaiko_up name=zaiko_up size=12></TD>
+    <TD>排気量(cc)<BR><INPUT id=haikiryou_up name=haikiryou_up size=12></TD></TR>
+  <TR bgColor=#ffffff>
+
+    <TD>燃費(10･15モード)<BR><INPUT id=nenpi_up name=nenpi_up size=12></TD>
+    <TD>走行距離(km)<BR><INPUT id=milage_up name=milage_up size=12></TD>
+    <TD>年式<BR><INPUT id=nenshiki_up name=nenshiki_up size=12></TD>
+    <TD 
+    colSpan=2>コメント<BR><TEXTAREA cols=30 rows=3 id=comment_up name=comment_up></TEXTAREA></TD></TR>
+  <TR bgColor=#99ccff>
+    <TD colSpan=6><INPUT name=call value=delete type=radio> <B>削除処理</B> 
+      -削除するIDを入力し削除して下さい。-</TD></TR>
+  <TR bgColor=#ffffff>
+
+    <TD colSpan=5>削除ID <INPUT id=id_de name=id_de size=12></TD></TR></TBODY></TABLE><BR>
+    <INPUT value=OK type=submit onclick="submit()"> <INPUT value=クリア type=reset onclick="reset()">
+</div>
+<div id=showcar style="display:none">
+  <h1>1件検索処理結果</h1>
+            以下のように登録されています。
+            <table id=showtable border=1 bordercolor=#333333 >
+            <tr bgcolor=#99ccff>
+                <th>登録No</th>
+                <th>車名</th>
+                <th>カラー</th>
+                <th>在庫有無</th>
+                <th>排気量(cc)</th>
+                <th>燃費(10.15モード)(km/L)</th>
+                <th>走行距離(km)</th>
+                <th>年式</th>
+                <th>コメント</th>
+                <th>最終更新日</th>
+            </tr>          
+         </table>
+         <br/>
+         <hr/>
+         <button id=shop_back onclick="back()" >入り口に戻る</button>
+</div> 
+  <script type="text/javascript" src="javascripts/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/carshop.js"></script>
+</BODY>
+</HTML>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>ログイン</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- <link href="css/login.css" rel="stylesheet" type="text/css" /> -->
+  </head>
+  <body>
+    <h1>ログイン</h1>
+	<div id="content">
+		<form action="/" method="post">
+			<input type="hidden" name="_csrf" value='<%= csrfToken%>'>
+			<table width="300" height="150" border="0" cellspacing="0">
+				<tr>
+					<td>ユーザーID:</td>
+					<td><input type="text" id="username" name="username" required /></td>
+				</tr>
+				<tr>
+					<td>パスワード:</td>
+					<td><input type="password" id="password" name="password" required /></td>
+				</tr>
+				<tr>
+					<td colspan=2><input type="submit" value="ログイン"/></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+    <% include messages %>
+  </body>
+</html>
