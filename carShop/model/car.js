@@ -16,7 +16,7 @@ Car.createtable = function (fn) {
   			   ' ZAIKO      BOOLEAN, ' +
   			   ' HAIKIRYOU  FLOAT, ' +
   			   ' NENPI      FLOAT, ' +
-  			   ' MILAGE     INTEGER, ' +
+  			   ' MILAGE     FLOAT, ' +
   			   ' NENSHIKI   VARCHAR(255), ' +
   			   ' COMMENT    VARCHAR(255), ' +
   			   ' LASTUPDATE TIMESTAMP, PRIMARY KEY (ID) )',

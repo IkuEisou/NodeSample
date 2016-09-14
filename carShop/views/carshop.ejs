@@ -5,7 +5,7 @@
 <BODY bgColor=#3399ff>
 <input type="hidden" name="_csrf" id="id_csrf" value='<%= csrfToken%>'>
 <div id=shop>
-<p style="margin-left: 1400px;"><a href="/logout">ログアウト</a></p>
+<p align=left><a href="/logout">ログアウト</a></p>
 <H1>CarShopトップ</H1>
 <HR>
 <INPUT value=OK type=submit onclick="submit()"> <INPUT value=クリア type=reset onclick="reset()"> <BR>
@@ -25,7 +25,7 @@
     <TD>登録ID<BR><INPUT id=id_in name=id_in size=12></TD>
     <TD>車名<BR><INPUT id=name_in name=name_in></TD>
     <TD>カラー<BR><INPUT id=color_in name=color_in size=12></TD>
-    <TD>在庫有無(有:0/無:1)<BR><INPUT id=zaiko_in name=zaiko_in size=12></TD>
+    <TD>在庫有無(有:1/無:0)<BR><INPUT id=zaiko_in name=zaiko_in size=12></TD>
     <TD>排気量(cc)<BR><INPUT id=haikiryou_in name=haikiryou_in size=12></TD></TR>
   <TR bgColor=#ffffff>
 
@@ -42,7 +42,7 @@
     <TD>更新ID<BR><INPUT id=id_up name=id_up size=12></TD>
     <TD>車名<BR><INPUT id=name_up name=name_up></TD>
     <TD>カラー<BR><INPUT id=color_up name=color_up size=12></TD>
-    <TD>在庫有無(有:0/無:1)<BR><INPUT id=zaiko_up name=zaiko_up size=12></TD>
+    <TD>在庫有無(有:1/無:0)<BR><INPUT id=zaiko_up name=zaiko_up size=12></TD>
     <TD>排気量(cc)<BR><INPUT id=haikiryou_up name=haikiryou_up size=12></TD></TR>
   <TR bgColor=#ffffff>
 
@@ -58,6 +58,7 @@
 
     <TD colSpan=5>削除ID <INPUT id=id_de name=id_de size=12></TD></TR></TBODY></TABLE><BR>
     <INPUT value=OK type=submit onclick="submit()"> <INPUT value=クリア type=reset onclick="reset()">
+  <div id = "msgbar"></div>
 </div>
 <div id=showcar style="display:none">
   <h1>1件検索処理結果</h1>
@@ -81,6 +82,7 @@
          <button id=shop_back onclick="back()" >入り口に戻る</button>
 </div> 
   <script type="text/javascript" src="javascripts/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/msg.js"></script>
   <script type="text/javascript" src="javascripts/carshop.js"></script>
 </BODY>
 </HTML>

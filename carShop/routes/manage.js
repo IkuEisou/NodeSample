@@ -101,6 +101,19 @@ exports.deluser = function(req, res, next){
 				res.end(msg);
 		}
 		else {
+			if(user.type){
+				msg = '{"msg" : "Cann\'t delete admin!", "status" : 403}';
+				console.log(msg);
+				msgType = "canndelusr";
+				result = res.getMsg(msgType);
+	                        if(result && result.msg) {
+        	                       res.end(JSON.stringify(result));
+                	        }
+                        	else{
+                                       res.end(msg);
+				}
+				return;
+			}
 			User.del(name, function(err){
 				if (err){
                         		msg='{"msg" : "Delete user failed!", "status" : 500}';

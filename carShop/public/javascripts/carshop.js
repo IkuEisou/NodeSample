@@ -5,11 +5,11 @@ function submit(){
 	case 'selectOne':
 		var id = $("#id_so").val();
 		if (id == "" || id == null) {
-			alert("検索IDが入力されていません。");
+			printmsg("検索IDが入力されていません。");
 			return;
 		}
 		if (!isID(id)){
-		 	alert("IDに正数以外が入力されています。");
+		 	printmsg("IDに正数以外が入力されています。");
 			return;
 		}
 		$.ajax({
@@ -21,11 +21,11 @@ function submit(){
 				id: id
 			},
 			error: function(xhr, err){
-				alert(err.msg)
+				printmsg(err.msg)
 			},
 			success: function(data){
 				if (data.type) {
-					alert(data.msg);
+					printmsg(data.msg);
 				}else{
 					var date = data.lastupdate ? new Date(data.lastupdate) : "";
 					var html = "<tr id=showtr><td>"+data.id+"</td><td>"+data.name+"</td><td>"+data.color+
@@ -33,6 +33,7 @@ function submit(){
 						+data.milage+"</td><td>"+data.nenshiki+"</td><td>"+data.comment+"</td><td>"
 						+date+"</td></tr>";
 					$('body').css("background-color","#fff"); 
+					$('#msgbar').empty();
 					$("#shop").hide();
 					$("#showcar").show();
 					$("#showtable").append(html);
@@ -51,11 +52,11 @@ function submit(){
 	case  "delete":
 		var id = $("#id_de").val();
 		if (id == "" || id == null) {
-			alert("削除IDが入力されていません。");
+			printmsg("削除IDが入力されていません。");
 			return;
 		}
                 if (!isID(id)){
-                        alert("削除IDに正数以外が入力されています。");
+                        printmsg("削除IDに正数以外が入力されています。");
                         return;
                 }
 		if (confirm("車を削除しますか？")){
@@ -68,10 +69,10 @@ function submit(){
 					id: id
 				},
 				error: function(err){
-					alert(err.msg);
+					printmsg(err.msg);
 				},
 				success: function(data){
-					alert(data.msg);
+					printmsg(data.msg);
 				}
 			});
 		}
@@ -81,6 +82,7 @@ function submit(){
 function reset(){
 	$('input:text').val("");
 	$('textarea').val("");
+	$('#msgbar').empty();
 }
 
 function check(action,id_input,name_input,color_input,zaiko_input,haikiryou_input,nenpi_input,
@@ -97,51 +99,51 @@ function check(action,id_input,name_input,color_input,zaiko_input,haikiryou_inpu
 	var csrf = $("#id_csrf").val();
 
 	if(id == "" || id == null){
-		alert("登録/更新IDが入力されていません。");
+		printmsg("登録/更新IDが入力されていません。");
 	}else if (!isID(id)) {
-		alert("登録/更新IDに正数以外が入力されています。");
+		printmsg("登録/更新IDに正数以外が入力されています。");
 	}
 	
 	else if( name== "" || name == null){
-		alert("車名が入力されていません。");
+		printmsg("車名が入力されていません。");
 	}
 	
 	else if( color == "" || color == null){
-		alert("カラーが入力されていません。");
+		printmsg("カラーが入力されていません。");
 	}
 	
 	else if( zaiko == "" || zaiko == null){
-		alert("在庫有無(有:0/無:1)が入力されていません。");
+		printmsg("在庫有無(有:1/無:0)が入力されていません。");
         }else if (!(zaiko==0 || zaiko==1)) {
-                alert("在庫有無(有:0/無:1)に(0,1)以外が含まれています。");
+                printmsg("在庫有無(有:1/無:0)に(0,1)以外が含まれています。");
 	}
 	
 	else if( haikiryou == "" || haikiryou == null){
-		alert("排気量(cc)が入力されていません。");
+		printmsg("排気量(cc)が入力されていません。");
         }else if (isNaN(haikiryou)) {
-                alert("排気量(cc)に数値以外が含まれています。");
+                printmsg("排気量(cc)に数値以外が含まれています。");
 	}
 
 	else if( nenpi == "" || nenpi == null){
-		alert("燃費が入力されていません。");
+		printmsg("燃費が入力されていません。");
         }else if (isNaN(nenpi)) {
-                alert("燃費に数値以外が含まれています。");
+                printmsg("燃費に数値以外が含まれています。");
 	}
 
 	else if( milage == "" || milage == null){
-		alert("走行距離が入力されていません。");
+		printmsg("走行距離が入力されていません。");
         }else if (isNaN(milage)) {
-                alert("走行距離に数値以外が含まれています。");
+                printmsg("走行距離に数値以外が含まれています。");
 	}
 
 	else if( nenshiki == "" || nenshiki == null){
-		alert("年式が入力されていません。");
+		printmsg("年式が入力されていません。");
         }else if (!isYear(nenshiki)) {
-                alert("年式に1000~9999以外の値が入力されています。");
+                printmsg("年式に1000~9999以外の値が入力されています。");
 	}
 
 	else if( comment == "" || comment == null){
-		alert("コメントが入力されていません。");
+		printmsg("コメントが入力されていません。");
 	}
 
 	else {
@@ -162,10 +164,10 @@ function check(action,id_input,name_input,color_input,zaiko_input,haikiryou_inpu
 				comment: comment
 			},
 			error: function(err){
-				alert(err.msg)
+				printmsg(err.msg)
 			},
 			success: function(data){
-				alert(data.msg);
+				printmsg(data.msg);
 			}
 		});
 	}
@@ -185,6 +187,6 @@ function isYear(adDate) {
 } 
    
 function isID(id){
-  var pattern = /^\d?$/;
+  var pattern = /^\d+?$/;
   return pattern.test(id);
 }

@@ -4,7 +4,7 @@ function regist(){
 	var password = $("#id_pass").val();
 
 	if (username==""||password=="") {
-		alert("ユーザーID/パスワードが入力されていません。");
+		printmsg("ユーザーID/パスワードが入力されていません。");
 	}else{
 		$.ajax({
 			type: 'POST',
@@ -16,10 +16,10 @@ function regist(){
 				pass: password
 			},
 			error: function(err){
-				alert(err.msg);
+				printmsg(err.msg);
 			},
 			success: function(result){
-				alert(result.msg);
+				printmsg(result.msg);
 			}
 		});
 	}
@@ -30,7 +30,7 @@ function deluser(){
 	var csrf = $("#id_csrf").val();
 
 	if (username=="") {
-		alert("ユーザーIDが入力されていません。");
+		printmsg("ユーザーIDが入力されていません。");
 	}else{
 		if (!confirm(username + "を削除しますか？")) {return;}
 		$.ajax({
@@ -42,10 +42,10 @@ function deluser(){
 				delname: username
 			},
 			error: function(err){
-				alert(err.msg)
+				printmsg(err.msg)
 			},
 			success: function(result){
-				alert(result.msg);
+				printmsg(result.msg);
 			}
 		});
 	}
@@ -61,10 +61,10 @@ function deltable(){
 			_csrf: csrf
 		},
 		error: function(err){
-			alert(err.msg);
+			printmsg(err.msg);
 		},
 		success: function(data){
-			alert(data.msg);
+			printmsg(data.msg);
 		}
 	});
 }
@@ -78,10 +78,10 @@ function cretable(){
 			_csrf: csrf
 		},
 		error: function(err){
-			alert(err.msg);
+			printmsg(err.msg);
 		},
 		success: function(data){
-			alert(data.msg);
+			printmsg(data.msg);
 		}
 	});
 }

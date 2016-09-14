@@ -223,6 +223,7 @@ exports.srhcar = function (req, res, next) {
 		else{
 			msg = '{"msg" : "Search car successfully!", "status" : 200}';
 			console.log(msg);
+			car.zaiko ? car.zaiko='有' : car.zaiko='無';
 			res.end(JSON.stringify(car));
 	    	}
  	});

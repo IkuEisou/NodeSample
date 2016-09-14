@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS fillme;
+CREATE TABLE fillme (
+"id" varchar(255) COLLATE "default" NOT NULL,
+"pwd" varchar(255) COLLATE "default" NOT NULL,
+"type" int2,
+"salt" varchar(255) COLLATE "default"
+)
+WITH (OIDS=FALSE)
+;
+
+ALTER TABLE fillme ADD PRIMARY KEY ("id");
+
+INSERT INTO fillme VALUES ('Apssuser01', 'Apss-Kensa01', '1','');
+INSERT INTO fillme VALUES ('user001', 'passwuser001', '0','');
+INSERT INTO fillme VALUES ('user002', 'passwuser002', '0','');
